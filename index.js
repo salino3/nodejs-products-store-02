@@ -2,12 +2,13 @@ import express from "express";
 import cors from "cors";
 import cookiesParser from "cookie-parser";
 import { PORT } from "./config.js";
-import { Product } from "./src/models/product.model.js";
+import { Product } from "./src/models/index.js";
+import { productsRouter } from "./src/ruouters/index.js";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(cookiesParser());
+// app.use(cookiesParser());
 
 async function initializeDatabase() {
   await Product.createTable();
@@ -30,3 +31,5 @@ startApp();
 app.get("/ping", (req, res) => {
   res.send("<h1>Pong</h1>");
 });
+
+app.use("/shop", productsRouter);
