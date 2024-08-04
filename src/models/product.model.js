@@ -36,7 +36,6 @@ export class Product {
         category VARCHAR(255),
         createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        deletedAt TIMESTAMP NULL,
         tags VARCHAR(255)
       )
     `;
